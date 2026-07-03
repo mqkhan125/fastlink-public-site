@@ -1,7 +1,6 @@
 // ============================================
 // src/services/api.js
 // Axios instance — customer-facing only
-// Admin-specific 401 redirect REMOVED
 // ============================================
 
 import axios from "axios";
@@ -25,7 +24,6 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    // Only clear customer tokens, NOT admin tokens
     if (error.response && error.response.status === 401) {
       localStorage.removeItem("fastlink_user_token");
       localStorage.removeItem("fastlink_user_data");
