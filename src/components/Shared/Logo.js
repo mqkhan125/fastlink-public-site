@@ -37,3 +37,4 @@ export function bindLogoEvents() {
     }, 100);
   });
 }
+
